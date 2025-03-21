@@ -20,6 +20,18 @@ class _HomeState extends State<Home> {
       color2 = Colors.black;
     }
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Time',
+          style: TextStyle(
+              fontSize: 30, fontWeight: FontWeight.bold, color: color),
+        ),
+        centerTitle: true,
+        leading: BackButton(
+          color: color,
+        ),
+        backgroundColor: color2,
+      ),
       backgroundColor: color,
       body: Center(
         child: Container(

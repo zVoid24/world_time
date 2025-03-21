@@ -10,7 +10,8 @@ class Location extends StatefulWidget {
 class _LocationState extends State<Location> {
   List<Map<String, String>> zones = [
     {'continent': 'Asia', 'city': 'Dhaka'},
-    {'continent': 'Europe', 'city': 'Amsterdam'}
+    {'continent': 'Europe', 'city': 'Amsterdam'},
+    {'continent': 'Asia', 'city': 'Tokyo'}
   ];
 
   @override
@@ -26,25 +27,28 @@ class _LocationState extends State<Location> {
         backgroundColor: Colors.white70,
       ),
       backgroundColor: Colors.white,
-      body: Center(
-        child: ListView.builder(
-            itemCount: zones.length,
-            itemBuilder: (context, index) {
-              return Card(
-                child: ListTile(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/Loading', arguments: {
-                      'continent': '${zones[index]['continent']}',
-                      'city': '${zones[index]['city']}',
-                    });
-                  },
-                  title: Text(
-                    '${zones[index]['city']}',
-                    style: TextStyle(fontSize: 15),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: ListView.builder(
+              itemCount: zones.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  child: ListTile(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/Loading', arguments: {
+                        'continent': '${zones[index]['continent']}',
+                        'city': '${zones[index]['city']}',
+                      });
+                    },
+                    title: Text(
+                      '${zones[index]['city']}',
+                      style: TextStyle(fontSize: 15),
+                    ),
                   ),
-                ),
-              );
-            }),
+                );
+              }),
+        ),
       ),
     );
   }
